@@ -14,7 +14,7 @@ function Home() {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://todo-bk.onrender.com/todo/gettodos",
+          "https://todo-bk.onrender.com/gettodos",
           {
             withCredentials: true,
             headers: {
@@ -38,7 +38,7 @@ function Home() {
     if (!newTodo) return;
     try {
       const response = await axios.post(
-        "https://todo-bk.onrender.com/todo/createTodo",
+        "https://todo-bk.onrender.com/createTodo",
         {
           text: newTodo,
           completed: false,
@@ -59,7 +59,7 @@ function Home() {
     const todo = todos.find((t) => t._id === id);
     try {
       const response = await axios.put(
-        `https://todo-bk.onrender.com/todo/updateTodo/${id}`,
+        `https://todo-bk.onrender.com/updateTodo/${id}`,
         {
           ...todo,
           completed: !todo.completed,
@@ -77,7 +77,7 @@ function Home() {
 
   const todoDelete = async (id) => {
     try {
-      await axios.delete(`https://todo-bk.onrender.com/todo/deleteTodo/${id}`, {
+      await axios.delete(`https://todo-bk.onrender.com/deleteTodo/${id}`, {
         withCredentials: true,
       });
       setTodos(todos.filter((t) => t._id !== id));
@@ -89,7 +89,7 @@ function Home() {
   const navigateTo = useNavigate();
   const logout = async () => {
     try {
-      await axios.post("https://todo-bk.onrender.com/user/logout", {
+      await axios.post("https://todo-bk.onrender.com/logout", {
         withCredentials: true,
       });
       navigateTo("/login");

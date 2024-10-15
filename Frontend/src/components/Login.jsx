@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://todo-bk.onrender.com/user/login",
+        "https://todo-bk.onrender.com/login",
         {
           email,
           password,
