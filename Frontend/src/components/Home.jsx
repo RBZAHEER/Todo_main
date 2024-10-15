@@ -95,8 +95,10 @@ function Home() {
       });
       navigateTo("/login");
       localStorage.removeItem("jwt");
+      toast.success(data.message || "User Logout Successfully :)");
     } catch (error) {
       setError("Error logging out");
+      toast.error(error.message || "Failed to Logout :(");
     }
   };
 
