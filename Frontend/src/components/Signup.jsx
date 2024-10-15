@@ -12,7 +12,7 @@ function Signup() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/user/signup",
+        "https://todo-bk.onrender.com/user/signup",
         {
           email,
           name,
