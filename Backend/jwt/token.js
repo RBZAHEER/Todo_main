@@ -8,10 +8,10 @@ export const createTokenAndSaveCookies = async (userId, res) => {
       expiresIn: "10d",
     });
     res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Use `true` if using HTTPS in production
-      sameSite: "lax", // Adjust if frontend and backend are on different domains
-      path: "/",
+      httpOnly: false,
+      secure: true, // Use `true` if using HTTPS in production
+      sameSite: "none", // Adjust if frontend and backend are on different domains
+      // path: "/",
     });
 
     const updatedUser = await User.findByIdAndUpdate(
