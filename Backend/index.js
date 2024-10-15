@@ -23,7 +23,7 @@ MongoDB();
 //middlewares
 app.use(
   cors({
-    origin: "https://todo-fe-skp0.onrender.com" || process.env.FRONTEND_URL,
+    origin: "https://todo-fe-skp0.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, // Allow sending cookies
     allowedHeaders: ["Content-Type", "Authorization"], // Include Authorization header

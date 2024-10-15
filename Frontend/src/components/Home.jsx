@@ -16,7 +16,7 @@ function Home() {
         const response = await axios.get(
           "https://todo-bk.onrender.com/todo/gettodos",
           {
-            withCredentials: true,
+            withCredentials: true, // This should allow cookies to be sent with the request
             headers: {
               "Content-Type": "application/json",
             },
