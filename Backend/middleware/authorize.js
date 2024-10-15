@@ -4,11 +4,11 @@ import { User } from "../model/user.model.js"; // Correct the import path for Us
 export const authenticate = async (req, res, next) => {
   const token = req.cookies.jwt;
   console.log("Token received:", token);
-  // if (!token) {
-  //   return res
-  //     .status(401)
-  //     .json({ message: "Unauthorized. No token provided." });
-  // }
+  if (!token) {
+    return res
+      .status(401)
+      .json({ message: "Unauthorized. No token provided." });
+  }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_TOKEN);
     // console.log("Token decoded:", decoded);
