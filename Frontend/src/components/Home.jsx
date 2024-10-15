@@ -22,10 +22,11 @@ function Home() {
             },
           }
         );
-        console.log(response.data.todos);
+        console.log("Response data:", response.data);
         setTodos(response.data.todos);
         setError(null);
       } catch (error) {
+        console.error("Error fetching todos:", error);
         setError("Failed to fetch todos");
       } finally {
         setLoading(false);

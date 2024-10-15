@@ -9,8 +9,8 @@ export const createTokenAndSaveCookies = async (userId, res) => {
     });
     res.cookie("jwt", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production", // Use `true` if using HTTPS in production
+      sameSite: "lax", // Adjust if frontend and backend are on different domains
       path: "/",
     });
 

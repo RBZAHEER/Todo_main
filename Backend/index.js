@@ -25,7 +25,7 @@ app.use(
   cors({
     origin: "https://todo-fe-skp0.onrender.com" || process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    credentials: true, // Allow sending cookies
     allowedHeaders: ["Content-Type", "Authorization"], // Include Authorization header
   })
 );

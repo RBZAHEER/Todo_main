@@ -3,7 +3,7 @@ import { User } from "../model/user.model.js"; // Correct the import path for Us
 
 export const authenticate = async (req, res, next) => {
   const token = req.cookies.jwt;
-  // console.log("Token received:", token);
+  console.log("Token received:", token);
   if (!token) {
     return res
       .status(401)

@@ -19,12 +19,14 @@ export const createTodo = async (req, res) => {
 //Get Todo
 export const getTodo = async (req, res) => {
   try {
-    const todos = await Todo.find({ user: req.user._id }); // fetch todos only for loggedin user.
-    // console.log("user ID", req.user._id);
-    res.status(201).json({ message: "Todo Fetched Successfully", todos });
+    // Fetch todos only for the logged-in user
+    const todos = await Todo.find({ user: req.user._id });
+
+    // Send success response with todos
+    res.status(200).json({ message: "Todos fetched successfully", todos });
   } catch (error) {
-    console.log(error);
-    res.status(400).json({ message: "Error occuring in todo fetching" });
+    console.error("Error fetching todos:", error); // Log the error for debugging
+    res.status(400).json({ message: "Error occurred while fetching todos" });
   }
 };
 
