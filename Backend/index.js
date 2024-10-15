@@ -26,6 +26,7 @@ app.use(
     origin: "https://todo-fe-skp0.onrender.com" || process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"], // Include Authorization header
   })
 );
 
